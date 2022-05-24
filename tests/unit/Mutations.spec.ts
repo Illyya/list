@@ -1,7 +1,7 @@
-import store from "@/store"
+import mutations from "@/store/mutations"
 
 describe("ADD_ITEM", () => {
-  it("добавляем элемент в список", () => {
+  it("Добавлет элемент в список", () => {
     const item = {
       name: 'Item',
       description: 'Description item',
@@ -10,12 +10,14 @@ describe("ADD_ITEM", () => {
     }
 
     const state = {
+      isAuthorized: false,
       list: []
     }
 
-    store.commit('ADD_ITEM', item);
+    mutations.ADD_ITEM(state, item);
 
     expect(state).toEqual({
+      isAuthorized: false,
       list: [{
         name: 'Item',
         description: 'Description item',

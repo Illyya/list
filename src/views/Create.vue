@@ -95,7 +95,7 @@ export default Vue.extend({
 
   created () {
     if (this.itemEdit) {
-      this.item = this.itemEdit;
+      this.item = Object.assign({}, this.itemEdit);
     }
   },
 
