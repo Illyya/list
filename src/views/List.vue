@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import AppList from '@/components/AppList.vue'
+import AppList from '@/components/AppList/List.vue'
 
 export default Vue.extend({
   name: 'List',

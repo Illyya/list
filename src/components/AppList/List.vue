@@ -13,22 +13,12 @@
       <div class="list__cell">Заметка</div>
     </li>
 
-    <li
+    <ListItem
       v-for="item in list"
       :key="item.id"
-      class="list__item"
-    >
-      <div class="list__cell">{{ item.id }}</div>
-      <div class="list__cell">{{ item.name }}</div>
-      <div class="list__cell">{{ item.description }}</div>
-      <div class="list__cell">{{ item.note }}</div>
-      <div class="list__cell">
-        <router-link :to="{ name: 'Create', params: { itemEdit: item } }">Редактировать</router-link>
-      </div>
-      <div class="list__cell">
-        <button @click="remove(item.id)" class="form__button button">Удалить</button>
-      </div>
-    </li>
+      :item="item"
+      @remove="remove(item.id)"
+    />
   </ul>
 </template>
 
@@ -36,8 +26,14 @@
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
 
+import ListItem from './ListItem.vue';
+
 export default Vue.extend({
   name: 'AppList',
+
+  components: {
+    ListItem
+  },
 
   data() {
     return {
